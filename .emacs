@@ -10,6 +10,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+;; enabling narrowing
+(put 'narrow-to-defun  'disabled nil) 
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
 ;; default file coding
