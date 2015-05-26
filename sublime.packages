@@ -8,6 +8,7 @@ ShellCommand
 Side Bar Enhancement
 SublimeCodeIntel
 SublimeLinter
+BoundKeys : 충돌난 키 바인딩 내역 목록 관리
 
 Themes
 Spacegray
