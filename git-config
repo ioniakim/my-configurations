@@ -1,5 +1,7 @@
+#!/usr/bin/env bash
+
 git config --global user.name "S W Kim"
-git config --global user.email xxx@xxx.xx
+git config --global user.email ionia.kim@gmail.com
 git config --global color.ui auto
 git config --global color.status auto
 git config --global color.branch auto
