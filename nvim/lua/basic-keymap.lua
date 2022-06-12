@@ -12,10 +12,10 @@ map('', '<Right>', '<Nop>', { noremap = true })
 
 
 -- Buffer key mappings
-map('n', ':bprevious<CR>', '[b', { noremap = true, silent = true })
-map('n', ':bnext<CR>', ']b', { noremap = true, silent = true })
-map('n', ':bfirst<CR>', '[B', { noremap = true, silent = true })
-map('n', ':blast<CR>', ']B', { noremap = true, silent = true })
+map('n', '[b', ':bprevious<CR>', { noremap = true })
+map('n', ']b', ':bnext<CR>', { noremap = true, silent = true })
+map('n', '[B', ':bfirst<CR>', { noremap = true, silent = true })
+map('n', ']B', ':blast<CR>', { noremap = true, silent = true })
 -- nnoremap <silent> [b :bprevious<CR>
 -- nnoremap <silent> ]b :bnext<CR>
 -- nnoremap <silent> [B :bfirst<CR>
