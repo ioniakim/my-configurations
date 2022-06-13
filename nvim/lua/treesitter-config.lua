@@ -48,6 +48,16 @@ require 'nvim-treesitter.configs'.setup {
                 goto_previous_usage = "<a-#>"
             }
         }
+    },
+
+    textsubjects = {
+        enable = true,
+        prev_selection = ',',
+        keymaps = {
+            ['.'] = 'textsubjects-smart',
+            [';'] = 'textsubjects-container-outer',
+            ['i;'] = 'textsubjects-container-inner'
+        }
     }
 }
 
