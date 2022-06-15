@@ -1,17 +1,25 @@
-packer plugin manager를 기반으로 구성하였음.
+lua config를 기반으로 packer.nvim plugin manager로 환경 구성
 
-lua/ 에 config files을 두었음
+# 원칙
+* lua config 사용
+* 설정의 종류에 따라 각각 분리 저장하여 config파일이 단순하도록 함.
+* config를 구조적으로 구성
 
-# 기본 config files
-* plugins.lua : 사용하는 plugins 지정
-* my-setting.lua : 기본 nvim settings
-* basic-keymap.lua : 기본 key-map
-* win32yank.lua : wsl2에서 win32yank를 활용한 clipboard사용 설정
-* colorscheme.lua : colorscheme 정의
-* lualine-setup.lua : lualine 설정
-* nvim-tree-setup.lua : nvim-tree 설정
-* telescope-setup.lua : telescope 설정
-* treesitter-config.lua : treesitter 설정 
+# 구조
+* nvim/
+    * init.lua
+    * lua/ : nvim configuration
+        * plugins.lua : 사용하는 plugins 지정
+        * options.lua : 기본 nvim settings
+        * keymaps.lua : 기본 key-map
+        * autocmd.lua : autocommand 설정
+        * colorscheme.lua : colorscheme 정의
+        * win32yank.lua : wsl2에서 win32yank를 활용한 clipboard사용 설정
+    * config/ : plugin configuration
+        * lualine.lua : lualine 설정
+        * nvim-tree.lua : nvim-tree 설정
+        * telescope.lua : telescope 설정
+        * treesitter.lua : treesitter 설정 
 
 # Plugins
 lua/plugins.lua 파일에 사용하는 plugins 지정
