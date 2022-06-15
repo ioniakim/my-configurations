@@ -40,7 +40,7 @@ return require('packer').startup(function()
         'nvim-treesitter/nvim-treesitter', 
         requires = {
             'nvim-treesitter/nvim-treesitter-refactor',
-            'RRethy/nvim-treesitter-textsubjects',
+            'nvim-treesitter/nvim-treesitter-textobjects',
         },
         config = get_config('treesitter'),
         run = ':TSUpdate',
