@@ -1,4 +1,4 @@
-
+-- Return require for use in 'config' parameter of packer's use
 local function get_config(name)
     return string.format('require("config/%s")', name)
 end
