@@ -10,7 +10,10 @@ set.wildmode = 'full'
 set.wildmenu = true
 set.cc = '120'
 vim.cmd('syntax on')
-set.clipboard:append('unnamedplus')
+-- Disable unnamedplus with using win32yank for system clipboard
+-- This could get nvim's paste/yank/delete slow.
+-- Specify "+ register on yank and cut commands
+-- set.clipboard:append('unnamedplus')
 set.cursorline = true
 set.encoding = 'utf-8'
 set.hidden = true
