@@ -14,5 +14,6 @@
 require 'plugins'
 require 'options'
 require 'keymaps'
+require 'autocmd'
 require 'colorscheme'
 require 'win32yank'

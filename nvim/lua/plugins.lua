@@ -1,16 +1,21 @@
+local fn = vim.fn
+
 -- Return require for use in 'config' parameter of packer's use
 local function get_config(name)
     return string.format('require("config/%s")', name)
 end
 
-vim.cmd [[packadd packer.nvim]]
-
-vim.cmd([[
-    augroup packer_user_config
-        autocmd!
-        autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-    augroup end
-]])
+-- Packer.nvim Bootstrapping
+-- Automatically install and set up packer.nvim on any machine you clone your configuration to
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+    packer_bootstrap = fn.system({
+        'git', 
+        'clone', 
+        '--depth', '1', 
+        'https://github.com/wbthomason/packer.nvim', 
+        install_path})
+end
 
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
@@ -34,8 +39,8 @@ return require('packer').startup(function()
     use { 
         'nvim-treesitter/nvim-treesitter', 
         requires = {
-          'nvim-treesitter/nvim-treesitter-refactor',
-          'RRethy/nvim-treesitter-textsubjects',
+            'nvim-treesitter/nvim-treesitter-refactor',
+            'RRethy/nvim-treesitter-textsubjects',
         },
         config = get_config('treesitter'),
         run = ':TSUpdate',
@@ -50,4 +55,9 @@ return require('packer').startup(function()
         config = get_config('lualine'),
     }
 
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if packer_bootstrap then
+        require('packer').sync()
+    end
 end)
