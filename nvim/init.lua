@@ -16,8 +16,3 @@ require 'options'
 require 'keymaps'
 require 'colorscheme'
 require 'win32yank'
-require 'treesitter-config'
-require 'nvim-tree-setup'
-require 'lualine-setup'
-require 'telescope-setup'
-
