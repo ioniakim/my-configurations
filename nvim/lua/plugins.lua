@@ -15,7 +15,7 @@ return require('packer').startup(function()
         requires = {
             'kyazdani42/nvim-web-devicons', -- optional, for file icon
         },
-        tag = 'nightly'  -- optional, updated every week
+        tag = 'nightly',  -- optional, updated every week
     }
 
     use {

@@ -12,10 +12,10 @@
 
 
 require 'plugins'
-require 'my-setting'
-require 'win32yank'
+require 'options'
+require 'keymaps'
 require 'colorscheme'
-require 'basic-keymap'
+require 'win32yank'
 require 'treesitter-config'
 require 'nvim-tree-setup'
 require 'lualine-setup'
