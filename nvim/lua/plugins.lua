@@ -55,6 +55,12 @@ return require('packer').startup(function()
         config = get_config('lualine'),
     }
 
+    -- Comment out
+    -- gcc : comment out one line
+    -- gc{Motion} : comment out {Motion}
+    -- :Commentary  : ex command
+    use {'tpope/vim-commentary'}
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
