@@ -6,7 +6,7 @@ if vim.fn.has("termguicolors") == 1 then
     set.termguicolors = true
 end
 
-vim.cmd [[
+cmd [[
 syntax on 
 colorscheme dracula
 ]]
