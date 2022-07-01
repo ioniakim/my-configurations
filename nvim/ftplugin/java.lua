@@ -6,6 +6,19 @@ end
 local jdtls_dir = vim.fn.expand('~/.local/share/nvim/lsp_servers/jdtls')
 local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
+local extendedClientCapabilities = jdtls.extendedClientCapabilities
+extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
+
+JAVA_DAP_ACTIVE = true
+
+local bundles = {
+    vim.fn.glob(
+        vim.fn.expand("~/.config/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
+    ),
+}
+
+vim.list_extend(bundles, vim.split(vim.fn.glob(vim.fn.expand("~/.config/nvim/vscode-java-test/server/*.jar")), "\n"))
+
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
     -- The command that starts the language server
@@ -48,7 +61,59 @@ local config = {
     -- for a list of options
     settings = {
         java = {
-        }
+            eclipse = {
+                downloadSources = true,
+            },
+            configuration = {
+                updateBuildConfiguration = "interactive",
+            },
+            maven = {
+                downloadSources = true,
+            },
+            implementationsCodeLens = {
+                enabled = true,
+            },
+            referencesCodeLens = {
+                enabled = true,
+            },
+            references = {
+                includeDecompiledSources = true,
+            },
+            -- Set this to true to use jdtls as your formatter
+            format = {
+                enabled = false,
+            },
+        },
+        signatureHelp = { enabled = true },
+        completion = {
+            favoriteStaticMembers = {
+                "org.hamcrest.MatcherAssert.assertThat",
+                "org.hamcrest.Matchers.*",
+                "org.hamcrest.CoreMatchers.*",
+                "org.junit.jupiter.api.Assertions.*",
+                "java.util.Objects.requireNonNull",
+                "java.util.Objects.requireNonNullElse",
+                "org.mockito.Mockito.*",
+            },
+        },
+        contentProvider = { preferred = "fernflower" },
+        extendedClientCapabilities = extendedClientCapabilities,
+        sources = {
+            organizeImports = {
+                starThreshold = 9999,
+                staticStarThreshold = 9999,
+            },
+        },
+        codeGeneration = {
+            toString = {
+                template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+            },
+            useBlocks = true,
+        },
+    },
+
+    flags = {
+        allow_incremental_sync = true,
     },
 
     -- Language server `initializationOptions`
@@ -59,7 +124,8 @@ local config = {
     --
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
-        bundles = {}
+        -- bundles = {}
+        bundles = bundles
     },
 }
 
@@ -75,8 +141,16 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 -- or attaches to an existing client & server depending on the `root_dir`.
 require('jdtls').start_or_attach(config)
 
+vim.cmd("command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)")
+vim.cmd("command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)")
+vim.cmd("command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()")
+vim.cmd("command! -buffer JdtJol lua require('jdtls').jol()")
+vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
+vim.cmd("command! -buffer JdtJshell lua require('jdtls').jshell()")
 
 local map = vim.keymap.set
+
+local opts = { silent = true }
 
 map('n', '<A-o>', '<Cmd>lua require(\'jdtls\').organize_imports()<CR>', { noremap = true })
 map('n', 'crv', '<Cmd>lua require(\'jdtls\').extract_variable()<CR>', { noremap = true })

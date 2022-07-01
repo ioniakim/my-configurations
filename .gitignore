@@ -1,3 +1,7 @@
+# vscode-debug and vscode-test
+nvim/vscode-java-test/
+nvim/java-debug/
+
 # Neovim lua plugin compiled directory
 plugin/
 
