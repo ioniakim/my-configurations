@@ -87,7 +87,10 @@ return require('packer').startup(function(use)
     -- simple to use language server installer
     use { "williamboman/nvim-lsp-installer" }
     use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
-    use { "RRethy/vim-illuminate" }
+    use { 
+        "RRethy/vim-illuminate",
+        config = get_config("illuminate")
+    }
 
     -- DAP
     use { 
