@@ -148,16 +148,16 @@ vim.cmd("command! -buffer JdtJol lua require('jdtls').jol()")
 vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
 vim.cmd("command! -buffer JdtJshell lua require('jdtls').jshell()")
 
-local map = vim.keymap.set
+local keymap = vim.keymap.set
 
 local opts = { silent = true }
 
-map('n', '<A-o>', '<Cmd>lua require(\'jdtls\').organize_imports()<CR>', { noremap = true })
-map('n', 'crv', '<Cmd>lua require(\'jdtls\').extract_variable()<CR>', { noremap = true })
-map('v', 'crv', '<Esc><Cmd>lua require(\'jdtls\').extract_variable(true)<CR>', { noremap = true })
-map('n', 'crc', '<Cmd>lua require(\'jdtls\').extract_constant()<CR>', { noremap = true })
-map('v', 'crc', '<Esc><Cmd>lua require(\'jdtls\').extract_constant(true)<CR>', { noremap = true })
-map('v', 'crm', '<Esc><Cmd>lua require(\'jdtls\').extract_method(true)<CR>', { noremap = true })
+keymap('n', '<A-o>', '<Cmd>lua require(\'jdtls\').organize_imports()<CR>', { noremap = true })
+keymap('n', 'crv', '<Cmd>lua require(\'jdtls\').extract_variable()<CR>', { noremap = true })
+keymap('v', 'crv', '<Esc><Cmd>lua require(\'jdtls\').extract_variable(true)<CR>', { noremap = true })
+keymap('n', 'crc', '<Cmd>lua require(\'jdtls\').extract_constant()<CR>', { noremap = true })
+keymap('v', 'crc', '<Esc><Cmd>lua require(\'jdtls\').extract_constant(true)<CR>', { noremap = true })
+keymap('v', 'crm', '<Esc><Cmd>lua require(\'jdtls\').extract_method(true)<CR>', { noremap = true })
 
 
 -- If using nvim-dap
