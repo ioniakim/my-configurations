@@ -48,7 +48,7 @@ local config = {
 
         -- 💀
         -- See `data directory configuration` section in the README
-        '-data', vim.fn.expand('~/.cache/jdtls-workspace') .. workspace_dir,
+        '-data', vim.fn.expand('~/.cache/jdtls-workspace/') .. workspace_dir,
     },
 
     -- 💀
