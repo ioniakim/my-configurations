@@ -1,6 +1,5 @@
 local keymap = vim.keymap.set
 
-local opts = { silent = true }
 
 -- Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -17,6 +16,7 @@ keymap('', '<Right>', '<Nop>', { noremap = true })
 -- noremap <Right> <Nop>
 
 -- Window
+local opts = { silent = true }
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -29,7 +29,7 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Buffer key mappings
-keymap('n', '[b', ':bprevious<CR>', { noremap = true })
+keymap('n', '[b', ':bprevious<CR>', { noremap = true, silent = true})
 keymap('n', ']b', ':bnext<CR>', { noremap = true, silent = true })
 keymap('n', '[B', ':bfirst<CR>', { noremap = true, silent = true })
 keymap('n', ']B', ':blast<CR>', { noremap = true, silent = true })
