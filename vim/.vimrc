@@ -58,7 +58,18 @@ nnoremap <silent> <C-Down> :resize +2<CR>
 nnoremap <silent> <C-Left> :vertical resize -2<CR>
 nnoremap <silent> <C-Right> :vertical resize +2<CR>
 
+" Window Keymap
+nnoremap <silent> <C-h> <C-w>h
+nnoremap <silent> <C-j> <C-w>j
+nnoremap <silent> <C-k> <C-w>k
+nnoremap <silent> <C-l> <C-w>l
 
+" Terminal Keymap
+tnoremap <silent> <esc> <C-\><C-n>
+tnoremap <silent> <C-h> <C-\><C-n><C-w>h
+tnoremap <silent> <C-j> <C-\><C-n><C-w>j
+tnoremap <silent> <C-k> <C-\><C-n><C-w>k
+tnoremap <silent> <C-l> <C-\><C-n><C-w>l
 
 " color shcemes
 if (has("termguicolors")) " check true colors support
