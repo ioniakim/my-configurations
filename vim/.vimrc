@@ -31,6 +31,7 @@ set hidden
 set splitbelow
 set splitright
 set noswapfile
+set infercase
 runtime macros/matchit.vim
 
 
@@ -50,6 +51,13 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
+
+" Resize window
+nnoremap <silent> <C-Up> :resize -2<CR>
+nnoremap <silent> <C-Down> :resize +2<CR>
+nnoremap <silent> <C-Left> :vertical resize -2<CR>
+nnoremap <silent> <C-Right> :vertical resize +2<CR>
+
 
 
 " color shcemes
