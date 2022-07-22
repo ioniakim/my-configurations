@@ -25,6 +25,9 @@ set.smartcase = true
 set.hlsearch = true
 set.incsearch = true
 
+-- autocomplete
+set.infercase = true
+
 -- indentation
 vim.cmd('filetype plugin indent on')
 set.tabstop = 4
