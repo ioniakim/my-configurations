@@ -23,16 +23,16 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Up>", "<cmd>resize -2<CR>", opts)
+keymap("n", "<C-Down>", "<cmd>resize +2<CR>", opts)
+keymap("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
 -- Buffer key mappings
-keymap('n', '[b', ':bprevious<CR>', { noremap = true, silent = true})
-keymap('n', ']b', ':bnext<CR>', { noremap = true, silent = true })
-keymap('n', '[B', ':bfirst<CR>', { noremap = true, silent = true })
-keymap('n', ']B', ':blast<CR>', { noremap = true, silent = true })
+keymap('n', '[b', '<cmd>bprevious<CR>', { noremap = true, silent = true})
+keymap('n', ']b', '<cmd>bnext<CR>', { noremap = true, silent = true })
+keymap('n', '[B', '<cmd>bfirst<CR>', { noremap = true, silent = true })
+keymap('n', ']B', '<cmd>blast<CR>', { noremap = true, silent = true })
 -- nnoremap <silent> [b :bprevious<CR>
 -- nnoremap <silent> ]b :bnext<CR>
 -- nnoremap <silent> [B :bfirst<CR>
