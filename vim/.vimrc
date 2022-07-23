@@ -81,7 +81,7 @@ colorscheme dracula
 """ NERDTree
 "" The below key maps are conflict to autocompletion keys
 " nnoremap <leader>n :NERDTreeFocus<CR>
-" nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 " nnoremap <C-t> :NERDTreeToggle<CR>
 " nnoremap <C-f> :NERDTreeFind<CR>
 
