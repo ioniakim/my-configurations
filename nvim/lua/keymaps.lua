@@ -6,10 +6,10 @@ local keymap = vim.keymap.set
 -- vim.g.mapleader = " "
 
 -- Disable arrow keys
-keymap('', '<Up>', '<Nop>', { noremap = true })
-keymap('', '<Down>', '<Nop>', { noremap = true })
-keymap('', '<Left>', '<Nop>', { noremap = true })
-keymap('', '<Right>', '<Nop>', { noremap = true })
+keymap('', "<Up>", "<Nop>", { noremap = true })
+keymap('', "<Down>", "<Nop>", { noremap = true })
+keymap('', "<Left>", "<Nop>", { noremap = true })
+keymap('', "<Right>", "<Nop>", { noremap = true })
 -- noremap <Up> <Nop>
 -- noremap <Down> <Nop>
 -- noremap <Left> <Nop>
@@ -29,10 +29,10 @@ keymap("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
 -- Buffer key mappings
-keymap('n', '[b', '<cmd>bprevious<CR>', { noremap = true, silent = true})
-keymap('n', ']b', '<cmd>bnext<CR>', { noremap = true, silent = true })
-keymap('n', '[B', '<cmd>bfirst<CR>', { noremap = true, silent = true })
-keymap('n', ']B', '<cmd>blast<CR>', { noremap = true, silent = true })
+keymap("n", "[b", "<cmd>bprevious<CR>", { noremap = true, silent = true})
+keymap("n", "]b", "<cmd>bnext<CR>", { noremap = true, silent = true })
+keymap("n", "[B", "<cmd>bfirst<CR>", { noremap = true, silent = true })
+keymap("n", "]B", "<cmd>blast<CR>", { noremap = true, silent = true })
 -- nnoremap <silent> [b :bprevious<CR>
 -- nnoremap <silent> ]b :bnext<CR>
 -- nnoremap <silent> [B :bfirst<CR>
@@ -40,10 +40,10 @@ keymap('n', ']B', '<cmd>blast<CR>', { noremap = true, silent = true })
 
 -- Telescope
 -- Find files using Telescope command-line suger
-keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true })
-keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = true })
-keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap = true })
-keymap('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', { noremap = true })
+keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { noremap = true })
+keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { noremap = true })
+keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { noremap = true })
+keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { noremap = true })
 
 
 -- Visual --
