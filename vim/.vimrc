@@ -72,7 +72,7 @@ tnoremap <silent> <C-k> <C-\><C-n><C-w>k
 tnoremap <silent> <C-l> <C-\><C-n><C-w>l
 
 " color shcemes
-if (has("termguicolors")) " check true colors support
+if (has('termguicolors')) " check true colors support
     set termguicolors     " enable true colors support
 endif
 syntax enable
