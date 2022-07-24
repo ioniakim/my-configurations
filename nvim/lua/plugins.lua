@@ -61,6 +61,9 @@ return require('packer').startup(function(use)
     -- :Commentary  : ex command
     use { 'tpope/vim-commentary' }
 
+    -- Surround
+    use { "tpope/vim-surround" }
+
     -- Terminal
     use { "akinsho/toggleterm.nvim",
         tag = 'v1.*',
