@@ -6,10 +6,10 @@ local keymap = vim.keymap.set
 -- vim.g.mapleader = " "
 
 -- Disable arrow keys
-keymap('', "<Up>", "<Nop>", { noremap = true })
-keymap('', "<Down>", "<Nop>", { noremap = true })
-keymap('', "<Left>", "<Nop>", { noremap = true })
-keymap('', "<Right>", "<Nop>", { noremap = true })
+keymap("", "<Up>", "<Nop>", { noremap = true })
+keymap("", "<Down>", "<Nop>", { noremap = true })
+keymap("", "<Left>", "<Nop>", { noremap = true })
+keymap("", "<Right>", "<Nop>", { noremap = true })
 -- noremap <Up> <Nop>
 -- noremap <Down> <Nop>
 -- noremap <Left> <Nop>

@@ -3,8 +3,8 @@ if not status_ok then
     return
 end
 
-local jdtls_dir = vim.fn.expand('~/.local/share/nvim/lsp_servers/jdtls')
-local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+local jdtls_dir = vim.fn.expand("~/.local/share/nvim/lsp_servers/jdtls")
+local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
@@ -26,35 +26,35 @@ local config = {
     cmd = {
 
         -- 💀
-        'java', -- or '/path/to/java11_or_newer/bin/java'
+        "java", -- or '/path/to/java11_or_newer/bin/java'
         -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
-        '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-        '-Dosgi.bundles.defaultStartLevel=4',
-        '-Declipse.product=org.eclipse.jdt.ls.core.product',
-        '-Dlog.protocol=true',
-        '-Dlog.level=ALL',
-        '-javaagent:' .. jdtls_dir .. '/lombok.jar',
-        '-Xms1g',
-        '--add-modules=ALL-SYSTEM',
-        '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-        '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+        "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+        "-Dosgi.bundles.defaultStartLevel=4",
+        "-Declipse.product=org.eclipse.jdt.ls.core.product",
+        "-Dlog.protocol=true",
+        "-Dlog.level=ALL",
+        "-javaagent:" .. jdtls_dir .. "/lombok.jar",
+        "-Xms1g",
+        "--add-modules=ALL-SYSTEM",
+        "--add-opens", "java.base/java.util=ALL-UNNAMED",
+        "--add-opens", "java.base/java.lang=ALL-UNNAMED",
 
         -- 💀
-        '-jar', jdtls_dir .. '/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+        "-jar", jdtls_dir .. "/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
 
         -- 💀
-        '-configuration', jdtls_dir .. '/config_linux',
+        "-configuration", jdtls_dir .. "/config_linux",
 
         -- 💀
         -- See `data directory configuration` section in the README
-        '-data', vim.fn.expand('~/.cache/jdtls-workspace/') .. workspace_dir,
+        "-data", vim.fn.expand("~/.cache/jdtls-workspace/") .. workspace_dir,
     },
 
     -- 💀
     -- This is the default if not provided, you can remove it. Or adjust as needed.
     -- One dedicated LSP server & client will be started per unique root_dir
-    root_dir = require('jdtls.setup').find_root({ '.git', 'mvnw', 'gradlew' }),
+    root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
 
     -- Here you can configure eclipse.jdt.ls specific settings
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
@@ -139,7 +139,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
-require('jdtls').start_or_attach(config)
+require("jdtls").start_or_attach(config)
 
 vim.cmd("command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)")
 vim.cmd("command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)")
@@ -167,12 +167,12 @@ keymap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 keymap("n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
-keymap('n', '<A-o>', '<Cmd>lua require(\'jdtls\').organize_imports()<CR>', opts)
-keymap('n', 'crv', '<Cmd>lua require(\'jdtls\').extract_variable()<CR>', opts)
-keymap('v', 'crv', '<Esc><Cmd>lua require(\'jdtls\').extract_variable(true)<CR>', opts)
-keymap('n', 'crc', '<Cmd>lua require(\'jdtls\').extract_constant()<CR>', opts)
-keymap('v', 'crc', '<Esc><Cmd>lua require(\'jdtls\').extract_constant(true)<CR>', opts)
-keymap('v', 'crm', '<Esc><Cmd>lua require(\'jdtls\').extract_method(true)<CR>', opts)
+keymap("n", "<A-o>", "<Cmd>lua require(\'jdtls\').organize_imports()<CR>", opts)
+keymap("n", "crv", "<Cmd>lua require(\'jdtls\').extract_variable()<CR>", opts)
+keymap("v", "crv", "<Esc><Cmd>lua require(\'jdtls\').extract_variable(true)<CR>", opts)
+keymap("n", "crc", "<Cmd>lua require(\'jdtls\').extract_constant()<CR>", opts)
+keymap("v", "crc", "<Esc><Cmd>lua require(\'jdtls\').extract_constant(true)<CR>", opts)
+keymap("v", "crm", "<Esc><Cmd>lua require(\'jdtls\').extract_method(true)<CR>", opts)
 
 
 -- If using nvim-dap
