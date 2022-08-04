@@ -68,7 +68,7 @@ return require("packer").startup(function(use)
 
     -- Terminal
     use { "akinsho/toggleterm.nvim",
-        tag = "v1.*",
+        tag = "v2.*",
         config = get_config("toggleterm")
     }
 
