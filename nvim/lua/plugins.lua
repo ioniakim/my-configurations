@@ -87,10 +87,11 @@ return require("packer").startup(function(use)
     }
 
     -- LSP
+    -- simple to use language server installer
+    use { "williamboman/mason.nvim" }
+    use { "williamboman/mason-lspconfig.nvim" }
     -- Enable lspconfig
     use { "neovim/nvim-lspconfig" }
-    -- simple to use language server installer
-    use { "williamboman/nvim-lsp-installer" }
     use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
     use {
         "RRethy/vim-illuminate",
