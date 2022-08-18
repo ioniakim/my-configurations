@@ -3,7 +3,8 @@ if not status_ok then
     return
 end
 
-local jdtls_dir = vim.fn.expand("~/.local/share/nvim/lsp_servers/jdtls")
+-- local jdtls_dir = vim.fn.expand("~/.local/share/nvim/lsp_servers/jdtls")
+local jdtls_dir = vim.fn.expand("~/.local/share/nvim/mason/packages/jdtls")
 local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
@@ -87,9 +88,11 @@ local config = {
         signatureHelp = { enabled = true },
         completion = {
             favoriteStaticMembers = {
-                "org.hamcrest.MatcherAssert.assertThat",
-                "org.hamcrest.Matchers.*",
-                "org.hamcrest.CoreMatchers.*",
+                -- "org.hamcrest.MatcherAssert.assertThat",
+                -- "org.hamcrest.Matchers.*",
+                -- "org.hamcrest.CoreMatchers.*",
+                "org.assertj.core.api.Assertions.assertThat",
+                "org.assertj.core.api.Assertions.*",
                 "org.junit.jupiter.api.Assertions.*",
                 "java.util.Objects.requireNonNull",
                 "java.util.Objects.requireNonNullElse",
