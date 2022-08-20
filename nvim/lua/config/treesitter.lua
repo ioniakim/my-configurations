@@ -3,6 +3,9 @@ require 'nvim-treesitter.configs'.setup {
     ensure_installed = {"c", "lua", "python", "java", "rust", "bash", "json", "html", "toml", "vim", "yaml" },
     -- Install parsers synchronously (only applied to ensure_installed)
     sync_install = true,
+    autopairs = {
+        enable = true,
+    },
     highlight = {
         enable = true,              -- false will disable the whole extension
         -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
