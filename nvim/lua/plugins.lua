@@ -57,7 +57,7 @@ return packer.startup(function(use)
 
     use { "tpope/vim-repeat" }
 
-    use { "windwp/nvim-autopairs", commit = "fa6876f832ea1b71801c4e481d8feca9a36215ec" } -- Autopairs, integrates with both cmp and treesitter
+    use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
 
     use { "kyazdani42/nvim-web-devicons" } -- optional, for file icon
 
@@ -71,7 +71,12 @@ return packer.startup(function(use)
     use { "akinsho/toggleterm.nvim", tag = "v2.*" }
 
     -- [[ Theme ]]
-    use { "mhinz/vim-startify" } -- start screen
+    -- use { "mhinz/vim-startify" } -- start screen
+    use { "goolord/alpha-nvim",
+        config = function ()
+            require"alpha".setup(require"alpha.themes.theta".config)
+        end
+    }
     use { "Mofiqul/dracula.nvim" } -- colorscheme
 
     -- cmp plugins
