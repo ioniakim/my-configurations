@@ -57,6 +57,8 @@ return packer.startup(function(use)
 
     use { "tpope/vim-repeat" }
 
+    use { "folke/which-key.nvim" }
+
     use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
 
     use { "kyazdani42/nvim-web-devicons" } -- optional, for file icon
@@ -84,6 +86,7 @@ return packer.startup(function(use)
     use { "hrsh7th/nvim-cmp" }
     use { "hrsh7th/cmp-buffer" } -- buffer completions
     use { "hrsh7th/cmp-path" } -- path completions
+    use { "hrsh7th/cmp-cmdline" } -- cmdline completions
     use { "saadparwaiz1/cmp_luasnip" } -- snippet completions
     use { "hrsh7th/cmp-nvim-lsp" }
     use { "hrsh7th/cmp-nvim-lua" }
