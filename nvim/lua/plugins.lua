@@ -112,7 +112,7 @@ return packer.startup(function(use)
     -- Highlighting
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
-    use { "nvim-treesitter/nvim-treesitter-refactor" }
+    -- use { "nvim-treesitter/nvim-treesitter-refactor" }
     use { "nvim-treesitter/nvim-treesitter-textobjects" }
 
     -- DAP
