@@ -60,6 +60,24 @@ local function lsp_keymaps(bufnr)
         return
     end
 
+    local gopts = {
+        mode = "n", -- NORMAL mode
+        prefix = "g",
+        buffer = bufnr, -- Global mappings. Specify a buffer number for buffer local mappings
+        silent = true, -- use 'silent' when creating keymaps
+        noremap = true, -- use 'noremap' when creating keymaps
+        nowait = true, -- use 'nowait' when creating keymaps
+    }
+
+    local gmappings = {
+        d = { "<cmd>Telescope lsp_definitions<cr>", "Definitions" },
+        D = { "<cmd>Telescope lsp_type_definitions<cr>", "Declarations" },
+        I = { "<cmd>Telescope lsp_implementations<cr>", "Implementations" },
+        r = { "<cmd>Telescope lsp_references<cr>", "References" },
+        l = { "<cmd>lua vim.diagnostic.open_float<cr>", "Open Float" },
+    }
+
+
     local opts = {
         mode = "n", -- NORMAL mode
         prefix = "<leader>",
@@ -68,6 +86,7 @@ local function lsp_keymaps(bufnr)
         noremap = true, -- use 'noremap' when creating keymaps
         nowait = true, -- use 'nowait' when creating keymaps
     }
+
 
     local mappings = {
         l = {
@@ -109,6 +128,7 @@ local function lsp_keymaps(bufnr)
         },
     }
 
+    which_key.register(gmappings, gopts)
     which_key.register(mappings, opts)
 end
 
