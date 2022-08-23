@@ -81,13 +81,19 @@ local opts = {
 
 local mappings = {
     ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-    ["b"] = { "<cmd>Telescope buffers<cr>", "Buffers", },
     -- ["c"] = { "<cmd>Bdelete!<cr>", "Close Buffer" },
     ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     ["h"] = { "<cmd>nohlsearch<cr>", "No Highlight" },
     ["v"] = { "<cmd>vsplit<cr>", "vsplit" },
     ["s"] = { "<cmd>split<cr>", "split" },
 
+    b = {
+        name = "Buffer",
+        n = { "<cmd>bnext<cr>", "Next Buffer" },
+        p = { "<cmd>bprevious<cr>", "Previous Buffer" },
+        f = { "<cmd>bfirst<cr>", "First Buffer" },
+        l = { "<cmd>blast<cr>", "Last Buffer" },
+    },
 
     P = {
         name = "Packer",
@@ -106,7 +112,8 @@ local mappings = {
 
     f = {
         name = "Find",
-        b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+        b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+        B = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         f = { "<cmd>Telescope find_files<cr>", "Find files" },
         t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
