@@ -3,9 +3,18 @@ if not status_ok then
     return
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if status_cmp_ok then
+    capabilities.textDocument.completion.completionItem.snippetSupport = false
+    capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+end
+
 -- local jdtls_dir = vim.fn.expand("~/.local/share/nvim/lsp_servers/jdtls")
 local jdtls_dir = vim.fn.expand("~/.local/share/nvim/mason/packages/jdtls")
 local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
@@ -51,6 +60,9 @@ local config = {
         -- See `data directory configuration` section in the README
         "-data", vim.fn.expand("~/.cache/jdtls-workspace/") .. workspace_dir,
     },
+
+    on_attach = require("lsp.handlers").on_attach,
+    capabilities = capabilities;
 
     -- 💀
     -- This is the default if not provided, you can remove it. Or adjust as needed.
@@ -193,15 +205,18 @@ local opts = {
 }
 
 local mappings = {
-    j = {
-        name = "Java",
-        o = { "<Cmd>lua require('jdtls').organize_imports()<CR>", "Organize Imports" },
-        v = { "<Cmd>lua require('jdtls').extract_variable()<CR>", "Extract Variable" },
-        c = { "<Cmd>lua require('jdtls').extract_constant()<CR>", "Extract Constant" },
-        t = { "<Cmd>lua require('jdtls').test_nearest_method()<CR>", "Test Method" },
-        T = { "<Cmd>lua require('jdtls').test_class()<CR>", "Test Class" },
-        u = { "<Cmd>JdtUpdateConfig<CR>", "Update Config" },
-    },
+    l = {
+        name = "LSP",
+        J = {
+            name = "Java",
+            o = { "<Cmd>lua require('jdtls').organize_imports()<CR>", "Organize Imports" },
+            v = { "<Cmd>lua require('jdtls').extract_variable()<CR>", "Extract Variable" },
+            c = { "<Cmd>lua require('jdtls').extract_constant()<CR>", "Extract Constant" },
+            t = { "<Cmd>lua require('jdtls').test_nearest_method()<CR>", "Test Method" },
+            T = { "<Cmd>lua require('jdtls').test_class()<CR>", "Test Class" },
+            u = { "<Cmd>JdtUpdateConfig<CR>", "Update Config" },
+        },
+    }
 }
 
 local vopts = {
