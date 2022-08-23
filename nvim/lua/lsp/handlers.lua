@@ -54,31 +54,62 @@ M.setup = function()
 end
 
 local function lsp_keymaps(bufnr)
-    local opts = { noremap = true, silent = true, buffer = bufnr }
-    local keymap = vim.keymap.set
-    keymap("n", "gD", vim.lsp.buf.declaration, opts)
-    keymap("n", "gd", vim.lsp.buf.definition, opts)
-    keymap("n", "<leader>D", vim.lsp.buf.type_definition, opts)
-    keymap("n", "K", vim.lsp.buf.hover, opts)
-    keymap("n", "gi", vim.lsp.buf.implementation, opts)
-    keymap("n", "gr", vim.lsp.buf.references, opts)
-    keymap("n", "gl", vim.diagnostic.open_float, opts)
-    keymap("n", "<leader>lf", function()
-        vim.lsp.buf.format { async = true }
-    end, opts)
-    -- keymap("n", "<leader>li", "<cmd>LspInfo<cr>", opts)
-    -- keymap("n", "<leader>lI", "<cmd>Mason<cr>", opts)
-    keymap("n", "<leader>la", vim.lsp.buf.code_action, opts)
-    keymap("n", "<leader>lj", vim.diagnostic.goto_next, opts)
-    keymap("n", "<leader>lk", vim.diagnostic.goto_prev, opts)
-    keymap("n", "<leader>lr", vim.lsp.buf.rename, opts)
-    keymap("n", "<leader>lh", vim.lsp.buf.signature_help, opts)
-    keymap("n", "<leader>lq", vim.diagnostic.setloclist, opts)
-    keymap("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
-    keymap("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
-    keymap("n", "<leader>wl", function()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, opts)
+    local status_wk_ok, which_key = pcall(require, "which-key")
+
+    if not status_wk_ok then
+        return
+    end
+
+    local opts = {
+        mode = "n", -- NORMAL mode
+        prefix = "<leader>",
+        buffer = bufnr, -- Global mappings. Specify a buffer number for buffer local mappings
+        silent = true, -- use 'silent' when creating keymaps
+        noremap = true, -- use 'noremap' when creating keymaps
+        nowait = true, -- use 'nowait' when creating keymaps
+    }
+
+    local mappings = {
+        l = {
+            name = "LSP",
+            a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+            -- c = { "<cmd>lua require('lsp').server_capabilities()<cr>", "Get Capabilities" },
+            -- d = {
+            --     "<cmd>Telescope lsp_document_diagnostics<cr>",
+            --     "Document Diagnostics",
+            -- },
+            -- w = {
+            --     "<cmd>Telescope lsp_workspace_diagnostics<cr>",
+            --     "Workspace Diagnostics",
+            -- },
+            f = { "<cmd>lua vim.lsp.buf.format({async=true})<cr>", "Format" },
+            h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help"},
+            j = {
+                "<cmd>lua vim.diagnostic.goto_next()<CR>",
+                "Next Diagnostic",
+            },
+            k = {
+                "<cmd>lua vim.diagnostic.goto_prev()<cr>",
+                "Prev Diagnostic",
+            },
+            l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+            q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
+            r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+            s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+            S = {
+                "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+                "Workspace Symbols",
+            },
+
+            w = {
+                a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", "Add Workspace Folder" },
+                r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", "Remove Workspace Folder" },
+                l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", "List Workspace Folders" }
+            },
+        },
+    }
+
+    which_key.register(mappings, opts)
 end
 
 M.on_attach = function(client, bufnr)
