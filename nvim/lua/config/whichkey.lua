@@ -116,7 +116,7 @@ local mappings = {
         B = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         f = { "<cmd>Telescope find_files<cr>", "Find files" },
-        t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
+        g = { "<cmd>Telescope live_grep<cr>", "Find Text" },
         s = { "<cmd>Telescope grep_string<cr>", "Find String" },
         h = { "<cmd>Telescope help_tags<cr>", "Help" },
         H = { "<cmd>Telescope highlights<cr>", "Highlights" },
@@ -131,42 +131,8 @@ local mappings = {
 
     l = {
         name = "LSP",
-    --     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    --     -- c = { "<cmd>lua require('lsp').server_capabilities()<cr>", "Get Capabilities" },
-    --     -- d = {
-    --     --     "<cmd>Telescope lsp_document_diagnostics<cr>",
-    --     --     "Document Diagnostics",
-    --     -- },
-    --     -- w = {
-    --     --     "<cmd>Telescope lsp_workspace_diagnostics<cr>",
-    --     --     "Workspace Diagnostics",
-    --     -- },
-    --     f = { "<cmd>lua vim.lsp.buf.format({async=true})<cr>", "Format" },
-    --     h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help"},
         i = { "<cmd>LspInfo<cr>", "Lsp Info" },
         I = { "<cmd>Mason<cr>", "Installer Info" },
-    --     j = {
-    --         "<cmd>lua vim.diagnostic.goto_next()<CR>",
-    --         "Next Diagnostic",
-    --     },
-    --     k = {
-    --         "<cmd>lua vim.diagnostic.goto_prev()<cr>",
-    --         "Prev Diagnostic",
-    --     },
-    --     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-    --     q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-    --     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    --     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-    --     S = {
-    --         "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-    --         "Workspace Symbols",
-    --     },
-
-    --     w = {
-    --         a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", "Add Workspace Folder" },
-    --         r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", "Remove Workspace Folder" },
-    --         l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", "List Workspace Folders" }
-    --     },
     },
 
     t = {
@@ -182,6 +148,12 @@ local mappings = {
         f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+    },
+
+    w = {
+        name = "Wrap",
+        l = { "<cmd>set wrap!<cr>", "Wrap Lines" },
+        s = { "<cmd>set wrapscan!<cr>", "Wrap Scan" },
     },
 }
 

@@ -1,9 +1,9 @@
 local fn = vim.fn
 
 -- Return require for use in 'config' parameter of packer's use
-local function get_config(name)
-    return string.format('require("config/%s")', name)
-end
+-- local function get_config(name)
+--     return string.format('require("config/%s")', name)
+-- end
 
 -- Packer.nvim Bootstrapping
 -- Automatically install and set up packer.nvim on any machine you clone your configuration to
