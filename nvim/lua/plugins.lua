@@ -80,6 +80,7 @@ return packer.startup(function(use)
         end
     }
     use { "Mofiqul/dracula.nvim" } -- colorscheme
+    use { "lunarvim/darkplus.nvim", branch = "neovim-0.7" }
 
     -- cmp plugins
     -- The completion plugin
