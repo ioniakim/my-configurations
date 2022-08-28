@@ -1,15 +1,17 @@
 local keymap = vim.keymap.set
 
 
+
 -- Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
+local noopts = { noremap = true }
+keymap("", "<Space>", "<Nop>", noopts)
 vim.g.mapleader = " "
 
 -- Disable arrow keys
-keymap("", "<Up>", "<Nop>", { noremap = true })
-keymap("", "<Down>", "<Nop>", { noremap = true })
-keymap("", "<Left>", "<Nop>", { noremap = true })
-keymap("", "<Right>", "<Nop>", { noremap = true })
+keymap("", "<Up>", "<Nop>", noopts)
+keymap("", "<Down>", "<Nop>", noopts)
+keymap("", "<Left>", "<Nop>", noopts)
+keymap("", "<Right>", "<Nop>", noopts)
 -- noremap <Up> <Nop>
 -- noremap <Down> <Nop>
 -- noremap <Left> <Nop>
