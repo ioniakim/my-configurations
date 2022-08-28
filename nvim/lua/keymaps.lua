@@ -2,8 +2,8 @@ local keymap = vim.keymap.set
 
 
 -- Remap space as leader key
--- keymap("", "<Space>", "<Nop>", opts)
--- vim.g.mapleader = " "
+keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
 
 -- Disable arrow keys
 keymap("", "<Up>", "<Nop>", { noremap = true })

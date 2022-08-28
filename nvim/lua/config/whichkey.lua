@@ -89,6 +89,7 @@ local mappings = {
 
     b = {
         name = "Buffer",
+        a = { "<cmd>buffer #<cr>", "Alternate Buffer" },
         n = { "<cmd>bnext<cr>", "Next Buffer" },
         p = { "<cmd>bprevious<cr>", "Previous Buffer" },
         f = { "<cmd>bfirst<cr>", "First Buffer" },

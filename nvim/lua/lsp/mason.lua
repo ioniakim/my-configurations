@@ -11,9 +11,22 @@ end
 local servers = {
     "sumneko_lua",
     "rust_analyzer",
+    "jdtls",
+}
+local settings = {
+  ui = {
+    border = "rounded",
+    icons = {
+      package_installed = "◍",
+      package_pending = "◍",
+      package_uninstalled = "◍",
+    },
+  },
+  log_level = vim.log.levels.INFO,
+  max_concurrent_installers = 4,
 }
 
-mason.setup()
+mason.setup(settings)
 
 mason_lspconfig.setup({
     ensure_installed = servers
@@ -42,5 +55,10 @@ for _, server in pairs(servers) do
     if server == "rust_analyzer" then
     end
 
+    if server == "jdtls" then
+        goto continue
+    end
+
     lspconfig[server].setup(opts)
+    ::continue::
 end

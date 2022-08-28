@@ -74,7 +74,8 @@ local function lsp_keymaps(bufnr)
         D = { "<cmd>Telescope lsp_type_definitions<cr>", "Declarations" },
         I = { "<cmd>Telescope lsp_implementations<cr>", "Implementations" },
         r = { "<cmd>Telescope lsp_references<cr>", "References" },
-        l = { "<cmd>lua vim.diagnostic.open_float<cr>", "Open Float" },
+        l = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Show Diagnostics" },
+        k = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Show Description" },
     }
 
 
@@ -112,6 +113,7 @@ local function lsp_keymaps(bufnr)
                 "Prev Diagnostic",
             },
             l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+            R = { "<cmd>lua vim.lsp.codelens.refresh()<cr>", "CodeLens Refresh" },
             q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
             r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
             s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
@@ -137,20 +139,31 @@ M.on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     if client.name == "sumneko_lua" then
+        -- resolved_capabilities was deprecated
+        -- client.resolved_capabilities.document_formatting = false
         client.server_capabilities.document_formatting = false
     end
 
-    lsp_keymaps(bufnr)
-
     if client.name == "jdt.ls" then
-        vim.lsp.codelens.refresh()
         if JAVA_DAP_ACTIVE then
             require("jdtls").setup_dap { hotcodereplace = "auto" }
             require("jdtls.dap").setup_dap_main_class_configs()
         end
+        -- resolved_capabilities was deprecated
+        -- client.resolved_capabilities.document_formatting = true
         client.server_capabilities.document_formatting = true
-        client.server_capabilities.textDocument.completion.completionItem.snippetSupport = false
+        vim.lsp.codelens.refresh()
+        -- set in java.lua
+        -- client.server_capabilities.textDocument.completion.completionItem.snippetSupport = false
     end
+
+    lsp_keymaps(bufnr)
+
+    local status_ok, illuminate = pcall(require, "illuminate")
+    if not status_ok then
+        return
+    end
+    illuminate.on_attach(client)
 
 end
 

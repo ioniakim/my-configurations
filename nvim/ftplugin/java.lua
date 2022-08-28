@@ -23,11 +23,11 @@ JAVA_DAP_ACTIVE = true
 
 local bundles = {
     vim.fn.glob(
-        vim.fn.expand("~/.config/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
+        "~/.local/programs/lsp/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
     ),
 }
 
-vim.list_extend(bundles, vim.split(vim.fn.glob(vim.fn.expand("~/.config/nvim/vscode-java-test/server/*.jar")), "\n"))
+vim.list_extend(bundles, vim.split(vim.fn.glob("~/.local/programs/lsp/vscode-java-test/server/*.jar"), "\n"))
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
