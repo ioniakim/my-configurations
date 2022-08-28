@@ -93,7 +93,7 @@ local function lsp_keymaps(bufnr)
         l = {
             name = "LSP",
             a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-            -- c = { "<cmd>lua require('lsp').server_capabilities()<cr>", "Get Capabilities" },
+            c = { "<cmd>lua require('lsp').server_capabilities()<cr>", "Get Capabilities" },
             -- d = {
             --     "<cmd>Telescope lsp_document_diagnostics<cr>",
             --     "Document Diagnostics",
@@ -127,6 +127,19 @@ local function lsp_keymaps(bufnr)
                 r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", "Remove Workspace Folder" },
                 l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", "List Workspace Folders" }
             },
+        },
+
+        d = {
+            b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+            l = { "<cmd>lua require('dap').list_breakpoints()<cr>", "List Breakpoints" },
+            c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
+            i = { "<cmd>lua require('dap').step_into()<cr>", "Step Into" },
+            o = { "<cmd>lua require('dap').step_over()<cr>", "Step Over" },
+            O = { "<cmd>lua require('dap').step_out()<cr>", "Step Out" },
+            r = { "<cmd>lua require('dap').repl.toggle()<cr>", "Toggle REPL" },
+            r = { "<cmd>lua require('dap').run_last()<cr>", "Run Last" },
+            u = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle DAPUI" },
+            t = { "<cmd>lua require('dap').terminate()<cr>", "Terminate" },
         },
     }
 
