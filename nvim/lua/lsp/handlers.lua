@@ -136,7 +136,7 @@ local function lsp_keymaps(bufnr)
             i = { "<cmd>lua require('dap').step_into()<cr>", "Step Into" },
             o = { "<cmd>lua require('dap').step_over()<cr>", "Step Over" },
             O = { "<cmd>lua require('dap').step_out()<cr>", "Step Out" },
-            r = { "<cmd>lua require('dap').repl.toggle()<cr>", "Toggle REPL" },
+            R = { "<cmd>lua require('dap').repl.toggle()<cr>", "Toggle REPL" },
             r = { "<cmd>lua require('dap').run_last()<cr>", "Run Last" },
             u = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle DAPUI" },
             t = { "<cmd>lua require('dap').terminate()<cr>", "Terminate" },
