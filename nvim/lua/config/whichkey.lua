@@ -109,6 +109,9 @@ local mappings = {
         name = "Options",
         c = { '<cmd>lua vim.g.cmp_active=false<cr>', "Completion off" },
         C = { '<cmd>lua vim.g.cmp_active=true<cr>', "Completion on" },
+
+        w = { "<cmd>set wrap!<cr>", "Toggle Wrap Lines" },
+        W = { "<cmd>set wrapscan!<cr>", "Toggle Wrap Scan" },
     },
 
     f = {
@@ -151,11 +154,6 @@ local mappings = {
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
     },
 
-    w = {
-        name = "Wrap",
-        l = { "<cmd>set wrap!<cr>", "Wrap Lines" },
-        s = { "<cmd>set wrapscan!<cr>", "Wrap Scan" },
-    },
 }
 
 which_key.setup(setup)
