@@ -130,6 +130,7 @@ local function lsp_keymaps(bufnr)
         },
 
         d = {
+            name = "Debug",
             b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
             l = { "<cmd>lua require('dap').list_breakpoints()<cr>", "List Breakpoints" },
             c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
