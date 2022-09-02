@@ -89,6 +89,7 @@ local mappings = {
 
     b = {
         name = "Buffer",
+        b = { "<cmd>Telescope buffers<cr>", "Buffers" },
         a = { "<cmd>buffer #<cr>", "Alternate Buffer" },
         n = { "<cmd>bnext<cr>", "Next Buffer" },
         p = { "<cmd>bprevious<cr>", "Previous Buffer" },
@@ -116,8 +117,7 @@ local mappings = {
 
     f = {
         name = "Find",
-        b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-        B = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+        b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         f = { "<cmd>Telescope find_files<cr>", "Find files" },
         g = { "<cmd>Telescope live_grep<cr>", "Find Text" },
