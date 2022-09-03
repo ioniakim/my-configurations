@@ -14,7 +14,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
         "clone",
         "--depth", "1",
         "https://github.com/wbthomason/packer.nvim",
-        install_path })
+        install_path
+    })
     print "Installing packer close and reopen Neovim..."
     vim.cmd [[packadd packer.nvim]]
 end
@@ -76,8 +77,8 @@ return packer.startup(function(use)
     -- [[ Theme ]]
     -- use { "mhinz/vim-startify" } -- start screen
     use { "goolord/alpha-nvim",
-        config = function ()
-            require"alpha".setup(require"alpha.themes.theta".config)
+        config = function()
+            require "alpha".setup(require "alpha.themes.theta".config)
         end
     }
     use { "Mofiqul/dracula.nvim" } -- colorscheme
@@ -109,7 +110,7 @@ return packer.startup(function(use)
 
 
     -- Telescope
-    use { "nvim-telescope/telescope.nvim", tag = "0.1.0"}
+    use { "nvim-telescope/telescope.nvim", tag = "0.1.0" }
 
     -- Highlighting
     -- Treesitter
@@ -127,10 +128,13 @@ return packer.startup(function(use)
     use { "mfussenegger/nvim-jdtls" }
 
 
+    -- Git
+    use { 'lewis6991/gitsigns.nvim' }
+
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
         require("packer").sync()
     end
 end)
-

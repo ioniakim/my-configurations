@@ -97,6 +97,19 @@ local mappings = {
         l = { "<cmd>blast<cr>", "Last Buffer" },
     },
 
+    -- This is defined in gitsigns config as it is here. 
+    -- g = {
+    --     name = "Git",
+    --     j = { gitsigns.next_hunk, "Next Hunk" },
+    --     k = { gitsigns.prev_hunk, "Prev Hunk" },
+    --     s = { gitsigns.stage_hunk, "Stage Hunk" },
+    --     r = { gitsigns.reset_hunk, "Reset Hunk" },
+    --     S = { gitsigns.stage_buffer, "Stage Buffer" },
+    --     R = { gitsigns.reset_buffer, "Reset Buffer" },
+    --     u = { gitsigns.undo_stage_hunk, "Undo Stage Hunk" },
+    --     p = { gitsigns.preview_hunk, "Preview Hunk" },
+    -- },
+
     P = {
         name = "Packer",
         c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -153,8 +166,26 @@ local mappings = {
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
     },
-
 }
+
+local vopts = {
+    mode = "v", -- VISUAL mode
+    prefix = "<leader>",
+    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true, -- use 'silent' when creating keymaps
+    noremap = true, -- use 'noremap' when creating keymaps
+    nowait = true, -- use 'nowait' when creating keymaps
+}
+
+local vmappings = {
+    -- This is defined in gitsigns config as it is here. 
+    -- g = {
+    --     name = "Git",
+    --     s = { gitsigns.stage_hunk, "Stage Hunk" },
+    --     r = { gitsigns.reset_hunk, "Reset Hunk" },
+    -- },
+}
+
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
