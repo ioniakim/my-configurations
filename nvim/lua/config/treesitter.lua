@@ -108,6 +108,10 @@ require 'nvim-treesitter.configs'.setup {
                 ["<leader>,"] = "@parameter.inner",
             },
         },
+    },
+
+    context_commentstring = {
+        enable = true
     }
 }
 
