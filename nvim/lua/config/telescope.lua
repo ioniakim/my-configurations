@@ -84,6 +84,8 @@ require("telescope").setup{
 
                 ["<PageUp>"] = actions.results_scrolling_up,
                 ["<PageDown>"] = actions.results_scrolling_down,
+                ["<C-f>"] = actions.results_scrolling_up,
+                ["<C-b>"] = actions.results_scrolling_down,
 
                 ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
                 ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
@@ -124,6 +126,8 @@ require("telescope").setup{
 
                 ["<PageUp>"] = actions.results_scrolling_up,
                 ["<PageDown>"] = actions.results_scrolling_down,
+                ["<C-f>"] = actions.results_scrolling_up,
+                ["<C-b>"] = actions.results_scrolling_down,
 
                 ["?"] = actions.which_key,
             },
@@ -131,7 +135,14 @@ require("telescope").setup{
     },
 
     pickers = {
-
-    }
+        find_files = {
+            -- theme = "dropdown",
+            -- initial_mode = "normal",
+        },
+        buffers = {
+            theme = "dropdown",
+            previewer = false,
+        },
+    },
 }
 
