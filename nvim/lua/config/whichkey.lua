@@ -97,7 +97,7 @@ local mappings = {
         l = { "<cmd>blast<cr>", "Last Buffer" },
     },
 
-    -- This is defined in gitsigns config as it is here. 
+    -- This is defined in gitsigns.nvim config as it is here. 
     -- g = {
     --     name = "Git",
     --     j = { gitsigns.next_hunk, "Next Hunk" },
@@ -108,6 +108,9 @@ local mappings = {
     --     R = { gitsigns.reset_buffer, "Reset Buffer" },
     --     u = { gitsigns.undo_stage_hunk, "Undo Stage Hunk" },
     --     p = { gitsigns.preview_hunk, "Preview Hunk" },
+    --
+    --     -- git-blame.nvim installed 
+    --     b = { "<cmd>GitBlameToggle<cr>", "Blame" },
     -- },
 
     P = {

@@ -51,6 +51,7 @@ gitsigns.setup {
             return
         end
 
+
         local opts = {
             mode = "n", -- NORMAL mode
             prefix = "<leader>",
@@ -91,9 +92,19 @@ gitsigns.setup {
             }
         }
 
-
         which_key.register(mappings, opts)
         which_key.register(vmappings, vopts)
 
+        local status_gb_ok, git_blame = pcall(require, "gitblame")
+        if status_gb_ok then
+            local gb_mappings = {
+                g = {
+                    name = "Git",
+                    b = { "<cmd>GitBlameToggle<cr>", "Blame" },
+                }
+            }
+
+            which_key.register(gb_mappings, opts)
+        end
     end
 }
