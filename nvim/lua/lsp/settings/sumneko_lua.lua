@@ -7,7 +7,11 @@ return {
                 -- castNumberToInteger = true,
             },
             format = {
-                enable = false,
+                enable = true,
+                defaultConfig = {
+                    indent_style = "space",
+                    indent_size = "4",
+                }
             },
             hint = {
                 enable = true,
