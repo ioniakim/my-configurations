@@ -84,6 +84,10 @@ return packer.startup(function(use)
     use { "Mofiqul/dracula.nvim" } -- colorscheme
     use { "lunarvim/darkplus.nvim", branch = "neovim-0.7" }
 
+    -- Git
+    use { "lewis6991/gitsigns.nvim" }
+    use { "f-person/git-blame.nvim" }
+
     -- cmp plugins
     -- The completion plugin
     use { "hrsh7th/nvim-cmp" }
@@ -128,9 +132,6 @@ return packer.startup(function(use)
     use { "mfussenegger/nvim-jdtls" }
 
 
-    -- Git
-    use { "lewis6991/gitsigns.nvim" }
-    use { "f-person/git-blame.nvim" }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
