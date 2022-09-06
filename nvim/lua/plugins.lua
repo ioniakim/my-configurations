@@ -70,6 +70,8 @@ return packer.startup(function(use)
         tag = "nightly", -- optional, updated every week
     }
 
+    use { "monaqa/dial.nvim" }
+
     use { "nvim-lualine/lualine.nvim" } -- statusline 
     -- Terminal
     use { "akinsho/toggleterm.nvim", tag = "v2.*" }
