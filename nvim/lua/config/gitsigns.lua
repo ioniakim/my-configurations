@@ -64,6 +64,7 @@ gitsigns.setup {
         local mappings = {
             g = {
                 name = "Git",
+                d = { gitsigns.diffthis("HEAD"), "Diff" },
                 j = { gitsigns.next_hunk, "Next Hunk" },
                 k = { gitsigns.prev_hunk, "Prev Hunk" },
                 s = { gitsigns.stage_hunk, "Stage Hunk" },

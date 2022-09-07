@@ -104,6 +104,7 @@ local mappings = {
         o = { "<cmd>Telescope git_status<cr>", "Open changed files" },
 
         --     The below keymaps are defined in gitsigns
+        -- d = { gitsigns.diffthis("HEAD"), "Diff" },
     --     j = { gitsigns.next_hunk, "Next Hunk" },
     --     k = { gitsigns.prev_hunk, "Prev Hunk" },
     --     s = { gitsigns.stage_hunk, "Stage Hunk" },
