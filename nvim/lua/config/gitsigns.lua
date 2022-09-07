@@ -100,7 +100,7 @@ gitsigns.setup {
             local gb_mappings = {
                 g = {
                     name = "Git",
-                    b = { "<cmd>GitBlameToggle<cr>", "Blame" },
+                    B = { "<cmd>GitBlameToggle<cr>", "Blame" },
                 }
             }
 

@@ -97,9 +97,13 @@ local mappings = {
         l = { "<cmd>blast<cr>", "Last Buffer" },
     },
 
-    -- This is defined in gitsigns.nvim config as it is here. 
-    -- g = {
-    --     name = "Git",
+    g = {
+        name = "Git",
+        b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+        c = { "<cmd>Telescop git_commits<cr>", "Checkout commit" },
+        o = { "<cmd>Telescope git_status<cr>", "Open changed files" },
+
+        --     The below keymaps are defined in gitsigns
     --     j = { gitsigns.next_hunk, "Next Hunk" },
     --     k = { gitsigns.prev_hunk, "Prev Hunk" },
     --     s = { gitsigns.stage_hunk, "Stage Hunk" },
@@ -110,8 +114,8 @@ local mappings = {
     --     p = { gitsigns.preview_hunk, "Preview Hunk" },
     --
     --     -- git-blame.nvim installed 
-    --     b = { "<cmd>GitBlameToggle<cr>", "Blame" },
-    -- },
+    --     B = { "<cmd>GitBlameToggle<cr>", "Blame" },
+    },
 
     P = {
         name = "Packer",
@@ -133,7 +137,6 @@ local mappings = {
 
     f = {
         name = "Find",
-        b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         f = { "<cmd>Telescope find_files<cr>", "Find files" },
         g = { "<cmd>Telescope live_grep<cr>", "Find Text" },
