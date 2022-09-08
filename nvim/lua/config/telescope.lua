@@ -63,16 +63,16 @@ require("telescope").setup{
 
         mappings = {
             i = {
-                ["<C-n>"] = actions.move_selection_next,
-                ["<C-p>"] = actions.move_selection_previous,
+                ["<C-n>"] = actions.cycle_history_next,
+                ["<C-p>"] = actions.cycle_history_prev,
 
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
 
                 ["<C-c>"] = actions.close,
 
-                ["<Down>"] = actions.cycle_history_next,
-                ["<Up>"] = actions.cycle_history_prev,
+                ["<Down>"] = actions.move_selection_next,
+                ["<Up>"] = actions.move_selection_previous,
 
                 ["<CR>"] = actions.select_default,
                 ["<C-x>"] = actions.select_horizontal,
