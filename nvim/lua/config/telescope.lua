@@ -116,8 +116,8 @@ require("telescope").setup{
                 ["M"] = actions.move_to_middle,
                 ["L"] = actions.move_to_bottom,
 
-                ["<Down>"] = actions.cycle_history_next,
-                ["<Up>"] = actions.cycle_history_prev,
+                ["n"] = actions.cycle_history_next,
+                ["p"] = actions.cycle_history_prev,
                 ["gg"] = actions.move_to_top,
                 ["G"] = actions.move_to_bottom,
 
