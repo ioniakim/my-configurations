@@ -102,6 +102,7 @@ local mappings = {
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescop git_commits<cr>", "Checkout commit" },
         o = { "<cmd>Telescope git_status<cr>", "Open changed files" },
+        g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
 
         --     The below keymaps are defined in gitsigns
         -- d = { gitsigns.diffthis("HEAD"), "Diff" },
@@ -168,7 +169,7 @@ local mappings = {
         ["4"] = { ":4ToggleTerm<cr>", "4" },
         -- n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
         -- u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-        -- t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+        t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
         -- p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
         f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },

@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 
-require("toggleterm").setup({
+toggleterm.setup({
     size = function(term)
         if term.direction == "horizontal" then
             return 15
@@ -19,7 +19,7 @@ require("toggleterm").setup({
     shading_factor = 2,
     start_in_insert = true,
     insert_mappings = true,
-    persist_size = true,
+    persist_size = false,
     direction = "float",
     close_on_exit = true,
     shell = vim.o.shell,
@@ -44,13 +44,32 @@ function _G.set_terminal_keymaps()
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
-vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 
 local Terminal = require("toggleterm.terminal").Terminal
 
-local lazygit = Terminal:new({cmd = "lazygit", hidden = true})
+local lazygit = Terminal:new({
+    cmd = "lazygit",
+    hidden = true,
+    direction = "float",
+    close_on_exit = true,
+    on_open = function(term)
+        -- start INSERT-MODE or TERMINAL-MODE in a terminal buffer
+        vim.cmd("startinsert!")
+        vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<cr>", {noremap = true, silent = true})
+    end,
+    on_close = function(term)
+    end,
+    count = 99,
+})
 
-function _lazygit_toggle()
+function _LAZYGIT_TOGGLE()
     lazygit:toggle()
+end
+
+local htop = Terminal:new({ cmd = "htop", hidden = true })
+
+function _HTOP_TOGGLE()
+    htop:toggle()
 end
