@@ -12,6 +12,7 @@ local servers = {
     "sumneko_lua",
     "rust_analyzer",
     "jdtls",
+    "clangd",
 }
 local settings = {
   ui = {
@@ -52,7 +53,13 @@ for _, server in pairs(servers) do
         opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
     end
 
-    if server == "rust_analyzer" then
+    -- if server == "rust_analyzer" then
+    -- end
+
+    if server == "clangd" then
+        opts.capabilities.offsetEncoding = "utf-8"
+        local clangd_opts = require("lsp.settings.clangd")
+        opts = vim.tbl_deep_extend("force", clangd_opts, opts)
     end
 
     if server == "jdtls" then
