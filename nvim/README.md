@@ -32,3 +32,7 @@ lua/plugins.lua 파일에 사용하는 plugins 지정
 * mhinz/vim-startify
 * Mofiqul/dracula.nvim
 * nvim-lualine/lualine.nvim
+
+# TODO
+[] Review lsp config and fix some bugs
+[] Make notes on clangd and its configuration for nvim
