@@ -34,7 +34,8 @@ lua/plugins.lua 파일에 사용하는 plugins 지정
 * nvim-lualine/lualine.nvim
 
 # TODO
-[] Remap esc keymap on lazygit terminal. The esc key let the command window go in lazygit but on terminal the esc key is mapped to getting into normal mode
-[] Review lsp config and fix some bugs
+[x] Remap esc keymap on lazygit terminal. The esc key let the command window go in lazygit but on terminal the esc key is mapped to getting into normal mode
+    * Set toggleterm opening keymap to <m-0> to utilize <c-\> back in terminal 
 [] Make notes on clangd and its configuration for nvim
+[] Review lsp config and fix some bugs
 
