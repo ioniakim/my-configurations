@@ -5,7 +5,7 @@ end
 
 local actions = require("telescope.actions")
 
-require("telescope").setup{
+telescope.setup{
     defaults = {
         file_ignore_patterns ={
             ".git/",
