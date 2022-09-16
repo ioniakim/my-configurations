@@ -70,6 +70,10 @@ return packer.startup(function(use)
         tag = "nightly", -- optional, updated every week
     }
 
+    -- Registers
+    use "tversteeg/registers.nvim"
+
+    -- Increment/Decrement
     use { "monaqa/dial.nvim" }
 
     use { "nvim-lualine/lualine.nvim" } -- statusline 
