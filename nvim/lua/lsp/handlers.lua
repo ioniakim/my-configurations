@@ -51,8 +51,9 @@ M.setup = function()
     })
 end
 
+local status_wk_ok, which_key = pcall(require, "which-key")
+
 local function lsp_keymaps(bufnr)
-    local status_wk_ok, which_key = pcall(require, "which-key")
 
     if not status_wk_ok then
         return
@@ -91,7 +92,7 @@ local function lsp_keymaps(bufnr)
         l = {
             name = "LSP",
             a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-            c = { "<cmd>lua require('lsp').server_capabilities()<cr>", "Get Capabilities" },
+            C = { "<cmd>lua require('lsp').server_capabilities()<cr>", "Get Capabilities" },
             -- d = {
             --     "<cmd>Telescope lsp_document_diagnostics<cr>",
             --     "Document Diagnostics",
@@ -146,9 +147,67 @@ local function lsp_keymaps(bufnr)
     which_key.register(mappings, opts)
 end
 
+local function jdtls_keymaps(bufnr)
+
+    if not status_wk_ok then
+        return
+    end
+
+    local opts = {
+        mode = "n", -- NORMAL mode
+        prefix = "<leader>",
+        buffer = bufnr, -- Global mappings. Specify a buffer number for buffer local mappings
+        silent = true, -- Use 'silent' when creating keymaps
+        noremap = true, -- Use 'noremap' when creating keymaps
+        nowait = true, -- Use 'nowait' when creating keymaps
+    }
+
+    local mappings = {
+        l = {
+            name = "LSP",
+            o = { "<Cmd>lua require('jdtls').organize_imports()<CR>", "Organize Imports" },
+            v = { "<Cmd>lua require('jdtls').extract_variable()<CR>", "Extract Variable" },
+            c = { "<Cmd>lua require('jdtls').extract_constant()<CR>", "Extract Constant" },
+            u = { "<Cmd>JdtUpdateConfig<CR>", "Update Config" },
+        },
+
+        d = {
+            -- Requires java-debug and vscode-java-test bundles
+            e = { "<Cmd>lua require('jdtls').test_nearest_method()<CR>", "Test Method" },
+            E = { "<Cmd>lua require('jdtls').test_class()<CR>", "Test Class" },
+        }
+    }
+
+    local vopts = {
+        mode = "v", -- VISUAL mode
+        prefix = "<leader>",
+        buffer = bufnr, -- Global mappings. Specify a buffer number for buffer local mappings
+        silent = true, -- Use 'silent' when creating keymaps
+        noremap = true, -- Use 'noremap' when creating keymaps
+        nowait = true, -- Use 'nowait' when creating keymaps
+    }
+
+    local vmappings = {
+        l = {
+            name = "LSP",
+            J = {
+                name = "Java",
+                v = { "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", "Extract Variable" },
+                c = { "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", "Extract Constant" },
+                m = { "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", "Extract Method" },
+            },
+        }
+    }
+
+    which_key.register(mappings, opts)
+    which_key.register(vmappings, vopts)
+end
+
 M.on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    lsp_keymaps(bufnr)
 
     if client.name == "sumneko_lua" then
         -- resolved_capabilities was deprecated
@@ -167,9 +226,9 @@ M.on_attach = function(client, bufnr)
         vim.lsp.codelens.refresh()
         -- set in java.lua
         -- client.server_capabilities.textDocument.completion.completionItem.snippetSupport = false
+        jdtls_keymaps(bufnr)
     end
 
-    lsp_keymaps(bufnr)
 
     local status_ok, illuminate = pcall(require, "illuminate")
     if not status_ok then
