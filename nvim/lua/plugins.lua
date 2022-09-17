@@ -118,6 +118,9 @@ return packer.startup(function(use)
     use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
     use { "RRethy/vim-illuminate" }
 
+    -- Java
+    use { "mfussenegger/nvim-jdtls" }
+
 
     -- Telescope
     use { "nvim-telescope/telescope.nvim", tag = "0.1.0" }
@@ -133,10 +136,6 @@ return packer.startup(function(use)
     use { "mfussenegger/nvim-dap" }
     use { "rcarriga/nvim-dap-ui" }
     use { "ravenxrz/DAPInstall.nvim" }
-
-    -- Java
-    use { "mfussenegger/nvim-jdtls" }
-
 
 
     -- Automatically set up your configuration after cloning packer.nvim
