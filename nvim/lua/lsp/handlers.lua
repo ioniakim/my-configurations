@@ -136,7 +136,7 @@ local function lsp_keymaps(bufnr)
             v = { "<cmd>lua require('dapui').eval()<cr>", "Evaluate" },
             V = { "<cmd>lua require('dapui').eval(vim.fn.input '[Expression] > ')<cr>", "Evaluate Input" },
             h = { "<cmd>lua require('dap.ui.widgets').hover()<cr>", "Hover Variables" },
-            s = { "<cmd>lua require('dap.ui.widgets').scopes()<cr>", "Scopes" },
+            -- s = { "<cmd>lua require('dap.ui.widgets').scopes()<cr>", "Scopes" }, -- scopes is not callable, but an entity
             c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
             i = { "<cmd>lua require('dap').step_into()<cr>", "Step Into" },
             o = { "<cmd>lua require('dap').step_over()<cr>", "Step Over" },

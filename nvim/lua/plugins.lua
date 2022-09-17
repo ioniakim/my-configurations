@@ -136,6 +136,7 @@ return packer.startup(function(use)
     use { "mfussenegger/nvim-dap" }
     use { "rcarriga/nvim-dap-ui" }
     use { "ravenxrz/DAPInstall.nvim" }
+    use { "theHamsta/nvim-dap-virtual-text" }
 
 
     -- Automatically set up your configuration after cloning packer.nvim
