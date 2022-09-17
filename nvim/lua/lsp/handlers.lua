@@ -131,15 +131,21 @@ local function lsp_keymaps(bufnr)
         d = {
             name = "Debug",
             b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+            B = { "<cmd>lua require('dap').set_breakpoint(vim.fn.input '[Condition] > ')<cr>", "Conditional Breakpoint" },
             l = { "<cmd>lua require('dap').list_breakpoints()<cr>", "List Breakpoints" },
+            v = { "<cmd>lua require('dapui').eval()<cr>", "Evaluate" },
+            V = { "<cmd>lua require('dapui').eval(vim.fn.input '[Expression] > ')<cr>", "Evaluate Input" },
+            h = { "<cmd>lua require('dap.ui.widgets').hover()<cr>", "Hover Variables" },
+            s = { "<cmd>lua require('dap.ui.widgets').scopes()<cr>", "Scopes" },
             c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
             i = { "<cmd>lua require('dap').step_into()<cr>", "Step Into" },
             o = { "<cmd>lua require('dap').step_over()<cr>", "Step Over" },
             O = { "<cmd>lua require('dap').step_out()<cr>", "Step Out" },
+            r = { "<cmd>lua require('dap').run_to_cursor()<cr>", "Run to Cursor" },
             R = { "<cmd>lua require('dap').repl.toggle()<cr>", "Toggle REPL" },
-            r = { "<cmd>lua require('dap').run_last()<cr>", "Run Last" },
+            -- r = { "<cmd>lua require('dap').run_last()<cr>", "Run Last" },
             u = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle DAPUI" },
-            t = { "<cmd>lua require('dap').terminate()<cr>", "Terminate" },
+            x = { "<cmd>lua require('dap').terminate()<cr>", "Terminate" },
         },
     }
 
@@ -173,8 +179,8 @@ local function jdtls_keymaps(bufnr)
 
         d = {
             -- Requires java-debug and vscode-java-test bundles
-            e = { "<Cmd>lua require('jdtls').test_nearest_method()<CR>", "Test Method" },
-            E = { "<Cmd>lua require('jdtls').test_class()<CR>", "Test Class" },
+            t = { "<Cmd>lua require('jdtls').test_nearest_method()<CR>", "Test Method" },
+            T = { "<Cmd>lua require('jdtls').test_class()<CR>", "Test Class" },
         }
     }
 
