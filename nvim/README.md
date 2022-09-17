@@ -34,6 +34,7 @@ lua/plugins.lua 파일에 사용하는 plugins 지정
 * nvim-lualine/lualine.nvim
 
 # TODO
+[] handlers.lua is too big. It may be better to separate some functions from it.
 [x] Remap esc keymap on lazygit terminal. The esc key let the command window go in lazygit but on terminal the esc key is mapped to getting into normal mode
     * Set toggleterm opening keymap to <m-0> to utilize <c-\> back in terminal 
 [x] Make notes on clangd and its configuration for nvim
