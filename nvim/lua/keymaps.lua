@@ -1,7 +1,5 @@
 local keymap = vim.keymap.set
 
-
-
 -- Remap space as leader key
 local noopts = { noremap = true }
 keymap("", "<Space>", "<Nop>", noopts)
@@ -43,7 +41,7 @@ if not status_ok then
 end
 
 
-local opts = {
+local wk_opts = {
     mode = "n", -- NORMAL mode
     prefix = "<leader>",
     buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
@@ -52,7 +50,7 @@ local opts = {
     nowait = true, -- use 'nowait' when creating keymaps
 }
 
-local mappings = {
+local wk_mappings = {
     ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
     -- ["c"] = { "<cmd>Bdelete!<cr>", "Close Buffer" },
     ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
@@ -150,7 +148,7 @@ local mappings = {
     },
 }
 
-local vopts = {
+local wk_vopts = {
     mode = "v", -- VISUAL mode
     prefix = "<leader>",
     buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
@@ -159,7 +157,7 @@ local vopts = {
     nowait = true, -- use 'nowait' when creating keymaps
 }
 
-local vmappings = {
+local wk_vmappings = {
     -- This is defined in gitsigns config as it is here. 
     -- g = {
     --     name = "Git",
@@ -168,4 +166,4 @@ local vmappings = {
     -- },
 }
 
-which_key.register(mappings, opts)
+which_key.register(wk_mappings, wk_opts)
