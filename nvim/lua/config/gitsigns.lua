@@ -3,6 +3,8 @@ if not status_ok then
     return
 end
 
+local gitsigns_keymaps = require("config.keymaps").gitsigns_keymaps
+
 -- Default settings
 gitsigns.setup {
     signs                        = {
@@ -45,67 +47,5 @@ gitsigns.setup {
         enable = false
     },
 
-    on_attach = function(bufnr)
-        local status_wk_ok, which_key = pcall(require, "which-key")
-        if not status_wk_ok then
-            return
-        end
-
-
-        local opts = {
-            mode = "n", -- NORMAL mode
-            prefix = "<leader>",
-            buffer = bufnr, -- Global mappings. Specify a buffer number for buffer local mappings
-            silent = true, -- use 'silent' when creating keymaps
-            noremap = true, -- use 'noremap' when creating keymaps
-            nowait = true, -- use 'nowait' when creating keymaps
-        }
-
-        local mappings = {
-            g = {
-                name = "Git",
-                d = { gitsigns.diffthis("HEAD"), "Diff" },
-                j = { gitsigns.next_hunk, "Next Hunk" },
-                k = { gitsigns.prev_hunk, "Prev Hunk" },
-                s = { gitsigns.stage_hunk, "Stage Hunk" },
-                r = { gitsigns.reset_hunk, "Reset Hunk" },
-                S = { gitsigns.stage_buffer, "Stage Buffer" },
-                R = { gitsigns.reset_buffer, "Reset Buffer" },
-                u = { gitsigns.undo_stage_hunk, "Undo Stage Hunk" },
-                p = { gitsigns.preview_hunk, "Preview Hunk" },
-            }
-        }
-
-        local vopts = {
-            mode = "v", -- Visual mode
-            prefix = "<leader>",
-            buffer = bufnr, -- Global mappings. Specify a buffer number for buffer local mappings
-            silent = true, -- use 'silent' when creating keymaps
-            noremap = true, -- use 'noremap' when creating keymaps
-            nowait = true, -- use 'nowait' when creating keymaps
-        }
-
-        local vmappings = {
-            g = {
-                name = "Git",
-                s = { gitsigns.stage_hunk, "Stage Hunk" },
-                r = { gitsigns.reset_hunk, "Reset Hunk" },
-            }
-        }
-
-        which_key.register(mappings, opts)
-        which_key.register(vmappings, vopts)
-
-        local status_gb_ok, git_blame = pcall(require, "gitblame")
-        if status_gb_ok then
-            local gb_mappings = {
-                g = {
-                    name = "Git",
-                    B = { "<cmd>GitBlameToggle<cr>", "Blame" },
-                }
-            }
-
-            which_key.register(gb_mappings, opts)
-        end
-    end
+    on_attach = gitsigns_keymaps,
 }

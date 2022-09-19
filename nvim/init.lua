@@ -32,4 +32,4 @@ require "config.dap-virtual-text"
 require "config.gitsigns"
 require "config.git-blame"
 require "config.registers"
-require "keymaps"
+require "config.keymaps".setup()
