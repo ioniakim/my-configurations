@@ -3,6 +3,8 @@ if not status_ok then
     return
 end
 
+require("nvim-treesitter.install").prefer_git = true
+
 local configs = require("nvim-treesitter.configs")
 
 configs.setup {
