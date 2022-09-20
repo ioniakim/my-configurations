@@ -70,6 +70,8 @@ return packer.startup(function(use)
         tag = "nightly", -- optional, updated every week
     }
 
+    use { "lukas-reineke/indent-blankline.nvim" } -- Blankline 
+
     -- Registers
     use "tversteeg/registers.nvim"
 
