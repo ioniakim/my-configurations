@@ -44,5 +44,3 @@ set.splitright = true
 -- mischellaneous
 -- expand jumping between matching parentheses
 vim.cmd('runtime macros/matchit.vim')
-
-

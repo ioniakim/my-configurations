@@ -5,42 +5,42 @@ end
 
 
 local augend = require("dial.augend")
-dial_config.augends:register_group{
+dial_config.augends:register_group {
     -- default augends used when no group name is specified
     default = {
-        augend.integer.alias.decimal,   -- nonnegative decimal number (0, 1, 2, 3, ...)
-        augend.integer.alias.hex,       -- nonnegative hex number  (0x01, 0x1a1f, etc.)
-        augend.integer.alias.octal,     -- 0o00, 0o11
-        augend.integer.alias.binary,    -- 0b0101, 0b11001111
-        augend.constant.alias.bool,    -- boolean value (true <-> false)
-        augend.constant.alias.alpha,   -- Lowercase alphabet letter
-        augend.constant.alias.Alpha,   -- Uppercase alphabet letter
-        augend.semver.alias.semver,  -- Version major.minor.patch
-        augend.date.alias["%Y/%m/%d"],  -- date (2022/02/19, etc.)
+        augend.integer.alias.decimal, -- nonnegative decimal number (0, 1, 2, 3, ...)
+        augend.integer.alias.hex, -- nonnegative hex number  (0x01, 0x1a1f, etc.)
+        augend.integer.alias.octal, -- 0o00, 0o11
+        augend.integer.alias.binary, -- 0b0101, 0b11001111
+        augend.constant.alias.bool, -- boolean value (true <-> false)
+        augend.constant.alias.alpha, -- Lowercase alphabet letter
+        augend.constant.alias.Alpha, -- Uppercase alphabet letter
+        augend.semver.alias.semver, -- Version major.minor.patch
+        augend.date.alias["%Y/%m/%d"], -- date (2022/02/19, etc.)
     },
 
     -- augends used when group with name `mygroup` is specified
     normal = {
         augend.integer.alias.decimal, -- 0, 314, -1592, ...
-        augend.integer.alias.hex,       -- 0x00, 0x3f3f
-        augend.integer.alias.octal,     -- 0o00, 0o11
-        augend.integer.alias.binary,    -- 0b0101, 0b11001111
-        augend.constant.alias.bool,    -- boolean value (true <-> false)
-        augend.constant.alias.alpha,   -- Lowercase alphabet letter
-        augend.constant.alias.Alpha,   -- Uppercase alphabet letter
-        augend.semver.alias.semver,  -- Version major.minor.patch
-        augend.date.alias["%Y/%m/%d"],  -- date (2022/02/19, etc.)
+        augend.integer.alias.hex, -- 0x00, 0x3f3f
+        augend.integer.alias.octal, -- 0o00, 0o11
+        augend.integer.alias.binary, -- 0b0101, 0b11001111
+        augend.constant.alias.bool, -- boolean value (true <-> false)
+        augend.constant.alias.alpha, -- Lowercase alphabet letter
+        augend.constant.alias.Alpha, -- Uppercase alphabet letter
+        augend.semver.alias.semver, -- Version major.minor.patch
+        augend.date.alias["%Y/%m/%d"], -- date (2022/02/19, etc.)
         augend.date.alias["%m/%d/%Y"], -- date (02/19/2022, etc.)
         augend.date.alias["%Y-%m-%d"],
         augend.date.alias["%m/%d"],
-        augend.date.alias["%-m/%-d"],   -- date (2/1, 3/13)
+        augend.date.alias["%-m/%-d"], -- date (2/1, 3/13)
         augend.date.alias["%H:%M"],
         augend.date.alias["%H:%M:%S"],
-        augend.constant.alias.ja_weekday,  -- 月, 火
+        augend.constant.alias.ja_weekday, -- 月, 火
 
         augend.constant.new {
             elements = { "public", "private" },
-            word = true,  -- if false, "apublic" is incremented into "aprivate" 
+            word = true, -- if false, "apublic" is incremented into "aprivate"
             cyclic = true, -- "private" is incremented into "public"
         },
 

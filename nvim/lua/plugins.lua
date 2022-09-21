@@ -70,7 +70,7 @@ return packer.startup(function(use)
         tag = "nightly", -- optional, updated every week
     }
 
-    use { "lukas-reineke/indent-blankline.nvim" } -- Blankline 
+    use { "lukas-reineke/indent-blankline.nvim" } -- Blankline
 
     -- Registers
     use "tversteeg/registers.nvim"
@@ -78,7 +78,7 @@ return packer.startup(function(use)
     -- Increment/Decrement
     use { "monaqa/dial.nvim" }
 
-    use { "nvim-lualine/lualine.nvim" } -- statusline 
+    use { "nvim-lualine/lualine.nvim" } -- statusline
     -- Terminal
     use { "akinsho/toggleterm.nvim", tag = "v2.*" }
 

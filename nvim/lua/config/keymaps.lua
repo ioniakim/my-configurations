@@ -4,7 +4,7 @@ local keymap = vim.keymap.set
 local status_wk_ok, which_key = pcall(require, "which-key")
 
 -- Default Keymappings
-M.setup = function ()
+M.setup = function()
     -- Remap space as leader key
     local noopts = { noremap = true }
     keymap("", "<Space>", "<Nop>", noopts)
@@ -108,7 +108,7 @@ M.setup = function ()
             h = { "<cmd>Telescope help_tags<cr>", "Help" },
             H = { "<cmd>Telescope highlights<cr>", "Highlights" },
             -- i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
-            j = { "<cmd>Telescope jumplist<cr>", "Jump List"},
+            j = { "<cmd>Telescope jumplist<cr>", "Jump List" },
             l = { "<cmd>Telescope resume<cr>", "Last Search" },
             M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
             r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
@@ -149,7 +149,7 @@ M.setup = function ()
     }
 
     local wk_vmappings = {
-        -- This is defined in gitsigns config as it is here. 
+        -- This is defined in gitsigns config as it is here.
         -- g = {
         --     name = "Git",
         --     s = { gitsigns.stage_hunk, "Stage Hunk" },
@@ -215,7 +215,7 @@ M.lsp_keymaps = function(bufnr)
             --     "Workspace Diagnostics",
             -- },
             f = { "<cmd>lua vim.lsp.buf.format({async=true})<cr>", "Format" },
-            h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help"},
+            h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
             j = {
                 "<cmd>lua vim.diagnostic.goto_next()<CR>",
                 "Next Diagnostic",

@@ -5,9 +5,9 @@ end
 
 local actions = require("telescope.actions")
 
-telescope.setup{
+telescope.setup {
     defaults = {
-        file_ignore_patterns ={
+        file_ignore_patterns = {
             ".git/",
             "target/",
             "docs/",
@@ -147,4 +147,3 @@ telescope.setup{
         },
     },
 }
-

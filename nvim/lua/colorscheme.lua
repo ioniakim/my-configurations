@@ -14,7 +14,6 @@ end
 -- end
 
 -- cmd [[
--- syntax on 
+-- syntax on
 -- colorscheme dracula
 -- ]]
-
