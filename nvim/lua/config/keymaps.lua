@@ -1,4 +1,4 @@
-M = {}
+local M = {}
 
 local keymap = vim.keymap.set
 local status_wk_ok, which_key = pcall(require, "which-key")
