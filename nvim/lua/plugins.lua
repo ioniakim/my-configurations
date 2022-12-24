@@ -73,7 +73,7 @@ return packer.startup(function(use)
     use { "lukas-reineke/indent-blankline.nvim" } -- Blankline
 
     -- Registers
-    use "tversteeg/registers.nvim"
+    use { "tversteeg/registers.nvim", tag = "v2.2.2" }
 
     -- Increment/Decrement
     use { "monaqa/dial.nvim" }
