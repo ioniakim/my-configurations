@@ -6,7 +6,7 @@ M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- Update cmp_nvim_lsp capabilities
 local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if status_cmp_ok then
-    M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
+    M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 end
 
 M.setup = function()
