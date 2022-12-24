@@ -63,10 +63,10 @@ return packer.startup(function(use)
 
     use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
 
-    use { "kyazdani42/nvim-web-devicons" } -- optional, for file icon
+    use { "nvim-tree/nvim-web-devicons" } -- optional, for file icon
 
     use {
-        "kyazdani42/nvim-tree.lua",
+        "nvim-tree/nvim-tree.lua",
         tag = "nightly", -- optional, updated every week
     }
 
