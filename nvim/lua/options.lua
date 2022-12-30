@@ -44,3 +44,8 @@ set.splitright = true
 -- mischellaneous
 -- expand jumping between matching parentheses
 vim.cmd('runtime macros/matchit.vim')
+
+-- using powershell on windows
+if (vim.loop.os_uname().sysname == 'Windows_NT') then
+    set.shell = 'powershell'
+end
