@@ -35,7 +35,7 @@ set noswapfile
 set sneak
 
 " Plugins
-Plug 'tpope/surround'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary' " For commenting gcc & gc
 Plug 'preservim/nerdtree'
 Plug 'vim-script/ReplaceWithRegister'
