@@ -22,7 +22,7 @@ toggleterm.setup({
     persist_size = false,
     direction = "float",
     close_on_exit = true,
-    shell = vim.o.shell,
+    shell = '"c:\\Program Files\\Git\\bin\\bash.exe"',
     float_opts = {
         border = "curved",
         winblend = 0,
