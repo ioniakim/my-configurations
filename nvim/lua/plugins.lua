@@ -142,7 +142,11 @@ return packer.startup(function(use)
         after = "nvim-treesitter",
         requires = "nvim-treesitter/nvim-treesitter",
     }
-    -- use { "JoosepAlviste/nvim-ts-context-commentstring" }
+    use { 
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        after = "nvim-treesitter",
+        requires = "nvim-treesitter/nvim-treesitter",
+    }
 
     -- DAP
     use { "mfussenegger/nvim-dap" }
