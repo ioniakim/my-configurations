@@ -45,7 +45,7 @@ packer.init {
 
 return packer.startup(function(use)
     use { "wbthomason/packer.nvim" } -- Have packer manage itself
-    use { "nvim-lua/plenary.nvim", tag = "v0.1.0"} -- Useful lua functions used by lots of plugins
+    use { "nvim-lua/plenary.nvim", tag = "v0.1.0" } -- Useful lua functions used by lots of plugins
     use { "nvim-lua/popup.nvim" }
 
     -- Comment out
@@ -129,15 +129,15 @@ return packer.startup(function(use)
 
     -- Highlighting
     -- Treesitter
-    use { 
-        "nvim-treesitter/nvim-treesitter", 
+    use {
+        "nvim-treesitter/nvim-treesitter",
         run = function()
             local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
             ts_update()
         end,
     }
     -- use { "nvim-treesitter/nvim-treesitter-refactor" }
-    use { 
+    use {
         "nvim-treesitter/nvim-treesitter-textobjects",
         after = "nvim-treesitter",
         requires = "nvim-treesitter/nvim-treesitter",
