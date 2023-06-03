@@ -137,7 +137,11 @@ return packer.startup(function(use)
         end,
     }
     -- use { "nvim-treesitter/nvim-treesitter-refactor" }
-    -- use { "nvim-treesitter/nvim-treesitter-textobjects" }
+    use { 
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        after = "nvim-treesitter",
+        requires = "nvim-treesitter/nvim-treesitter",
+    }
     -- use { "JoosepAlviste/nvim-ts-context-commentstring" }
 
     -- DAP
