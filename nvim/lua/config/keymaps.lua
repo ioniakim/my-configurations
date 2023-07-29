@@ -77,7 +77,6 @@ M.setup = function()
             b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
             c = { "<cmd>Telescop git_commits<cr>", "Checkout commit" },
             o = { "<cmd>Telescope git_status<cr>", "Open changed files" },
-            g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
             --     Refer to gitsigns_keymaps function for more keymaps
         },
 
