@@ -10,27 +10,30 @@
 --" Plug 'tpope/vim-surround'
 --"call plug#end()
 
+if vim.g.vscode then
+    require "options"
+else
+    require "plugins"
+    require "options"
+    require "autocmd"
+    require "colorscheme"
+    require "config.whichkey"
+    require "config.dial"
+    require "config.nvim-tree"
+    require "config.lualine"
+    require "config.toggleterm"
+    require "config.cmp"
+    require "config.telescope"
+    require "config.treesitter"
+    require "config.autopairs"
+    require "config.illuminate"
+    require "lsp"
+    require "config.dap"
+    require "config.dap-virtual-text"
+    require "config.gitsigns"
+    require "config.git-blame"
+    require "config.registers"
+    require "config.indent-blankline"
+    require "config.keymaps".setup()
+end
 
-require "plugins"
-require "options"
-require "autocmd"
-require "colorscheme"
--- require "win32yank"
-require "config.whichkey"
-require "config.dial"
-require "config.nvim-tree"
-require "config.lualine"
-require "config.toggleterm"
-require "config.cmp"
-require "config.telescope"
-require "config.treesitter"
-require "config.autopairs"
-require "config.illuminate"
-require "lsp"
-require "config.dap"
-require "config.dap-virtual-text"
-require "config.gitsigns"
-require "config.git-blame"
-require "config.registers"
-require "config.indent-blankline"
-require "config.keymaps".setup()
