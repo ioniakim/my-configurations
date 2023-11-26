@@ -140,8 +140,16 @@ configs.setup {
             },
         },
     },
-
-    context_commentstring = {
-        enable = true
-    }
 }
+
+
+local status_ok, commentstring = pcall(require, "ts_context_commentstring")
+if not status_ok then
+    return
+end
+
+commentstring.setup {
+    enable_autocmd = false,
+}
+
+
