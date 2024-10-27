@@ -1,0 +1,21 @@
+theme = "base16_terminal"
+
+[editor]
+line-number = "relative"
+rulers = [80]
+soft-wrap.enable = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.whitespace]
+render = "all"
+
+[editor.whitespace.characters]
+# space = "·"
+nbsp = "⍽"
+tab = "→"
+newline = "⏎"
+tabpad = "·"
