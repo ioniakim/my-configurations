@@ -22,8 +22,8 @@ set tabstop=4               " number of columns occupied by a tab character
 set expandtab               " converts tabs to white space
 set shiftwidth=4            " width for autoindents
 set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
-set autoindent              " indent a new line the same amount as the line just typed
-set clipboard+=unnamedplus   " using system clipboard
+"set autoindent              " indent a new line the same amount as the line just typed
+"set clipboard+=unnamedplus   " using system clipboard
 set cursorline              " underline the line on which the cursor is
 set encoding=utf-8          " use utf-8
 " set autochdir
